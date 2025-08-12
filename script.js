@@ -9,7 +9,6 @@ const successMessage = document.getElementById("successMessage");
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-// Validation Functions
 function validateName() {
   if (nameField.value.trim() === "") {
     nameError.textContent = "Name is required.";
@@ -57,12 +56,10 @@ function validateMessage() {
   }
 }
 
-// Real-time Validation
 nameField.addEventListener("input", validateName);
 emailField.addEventListener("input", validateEmail);
 messageField.addEventListener("input", validateMessage);
 
-// Form Submission
 document.getElementById("contactForm").addEventListener("submit", function (e) {
   e.preventDefault();
 
