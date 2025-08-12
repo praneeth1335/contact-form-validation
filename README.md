@@ -14,10 +14,10 @@ A simple **Contact Form** built using **HTML, CSS, and JavaScript** with **clien
 
 contact-form-validation/
 │
-├── index.html # Main HTML structure
-├── style.css # Form styling
-├── script.js # Validation logic
-└── README.md # Project documentation
+├── index.html 
+├── style.css 
+├── script.js 
+└── README.md 
 
 ---
 
