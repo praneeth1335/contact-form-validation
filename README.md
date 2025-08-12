@@ -1,12 +1,10 @@
-# Contact Form with JavaScript Validation
+# Contact Form with Real-Time JavaScript Validation
 
 ## 📌 Objective
-
-A simple **Contact Form** built using **HTML, CSS, and JavaScript** with **client-side validation** for:
-
-- Name (non-empty)
-- Email (non-empty, valid format using regex)
-- Message (non-empty)
+A **Contact Form** with **instant feedback** using JavaScript:
+- Real-time validation for Name, Email, and Message.
+- Email checked with regex.
+- Fields turn **green when valid** and **red when invalid**.
 
 ---
 
@@ -14,10 +12,10 @@ A simple **Contact Form** built using **HTML, CSS, and JavaScript** with **clien
 
 contact-form-validation/
 │
-├── index.html # Main HTML structure
-├── style.css # Form styling
-├── script.js # Validation logic
-└── README.md # Project documentation
+├── index.html
+├── style.css
+├── script.js
+└── README.md
 
 ---
 

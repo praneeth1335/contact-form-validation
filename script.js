@@ -1,43 +1,82 @@
+const nameField = document.getElementById("name");
+const emailField = document.getElementById("email");
+const messageField = document.getElementById("message");
+
+const nameError = document.getElementById("nameError");
+const emailError = document.getElementById("emailError");
+const messageError = document.getElementById("messageError");
+const successMessage = document.getElementById("successMessage");
+
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+// Validation Functions
+function validateName() {
+  if (nameField.value.trim() === "") {
+    nameError.textContent = "Name is required.";
+    nameField.classList.add("invalid");
+    nameField.classList.remove("valid");
+    return false;
+  } else {
+    nameError.textContent = "";
+    nameField.classList.add("valid");
+    nameField.classList.remove("invalid");
+    return true;
+  }
+}
+
+function validateEmail() {
+  if (emailField.value.trim() === "") {
+    emailError.textContent = "Email is required.";
+    emailField.classList.add("invalid");
+    emailField.classList.remove("valid");
+    return false;
+  } else if (!emailPattern.test(emailField.value.trim())) {
+    emailError.textContent = "Invalid email format.";
+    emailField.classList.add("invalid");
+    emailField.classList.remove("valid");
+    return false;
+  } else {
+    emailError.textContent = "";
+    emailField.classList.add("valid");
+    emailField.classList.remove("invalid");
+    return true;
+  }
+}
+
+function validateMessage() {
+  if (messageField.value.trim() === "") {
+    messageError.textContent = "Message is required.";
+    messageField.classList.add("invalid");
+    messageField.classList.remove("valid");
+    return false;
+  } else {
+    messageError.textContent = "";
+    messageField.classList.add("valid");
+    messageField.classList.remove("invalid");
+    return true;
+  }
+}
+
+// Real-time Validation
+nameField.addEventListener("input", validateName);
+emailField.addEventListener("input", validateEmail);
+messageField.addEventListener("input", validateMessage);
+
+// Form Submission
 document.getElementById("contactForm").addEventListener("submit", function (e) {
   e.preventDefault();
-  let name = document.getElementById("name").value.trim();
-  let email = document.getElementById("email").value.trim();
-  let message = document.getElementById("message").value.trim();
 
-  let nameError = document.getElementById("nameError");
-  let emailError = document.getElementById("emailError");
-  let messageError = document.getElementById("messageError");
-  let successMessage = document.getElementById("successMessage");
+  const isNameValid = validateName();
+  const isEmailValid = validateEmail();
+  const isMessageValid = validateMessage();
 
-  nameError.textContent = "";
-  emailError.textContent = "";
-  messageError.textContent = "";
-  successMessage.textContent = "";
-
-  let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  let isValid = true;
-
-  if (name === "") {
-    nameError.textContent = "Name is required.";
-    isValid = false;
-  }
-
-  if (email === "") {
-    emailError.textContent = "Email is required.";
-    isValid = false;
-  } else if (!emailPattern.test(email)) {
-    emailError.textContent = "Please enter a valid email.";
-    isValid = false;
-  }
-
-  if (message === "") {
-    messageError.textContent = "Message is required.";
-    isValid = false;
-  }
-
-  if (isValid) {
+  if (isNameValid && isEmailValid && isMessageValid) {
     successMessage.textContent = "Form submitted successfully!";
-    document.getElementById("contactForm").reset();
+    this.reset();
+    nameField.classList.remove("valid");
+    emailField.classList.remove("valid");
+    messageField.classList.remove("valid");
+  } else {
+    successMessage.textContent = "";
   }
 });
