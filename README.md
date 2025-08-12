@@ -12,17 +12,10 @@ A **Contact Form** with **instant feedback** using JavaScript:
 
 contact-form-validation/
 │
-<<<<<<< HEAD
 ├── index.html
 ├── style.css
 ├── script.js
 └── README.md
-=======
-├── index.html 
-├── style.css 
-├── script.js 
-└── README.md 
->>>>>>> a6e8f7efe0592510656f2c8c5045b16db3f4ac20
 
 ---
 
